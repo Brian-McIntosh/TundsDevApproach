@@ -83,11 +83,13 @@ VStack(alignment: .leading, spacing: 8) {
 
 
 ## 7. Design our Service
+This approach (protocol/protocol implementation) allows us to fake our service or viewmodel class for unit testing.
 ```swift
 protocol QuotesService {
     func fetchRandomQuotes() async throws -> [Quote]
 }
 
+// final means nobody can subclass it
 final class QuotesServiceImpl: QuotesService {
     func fetchRandomQuotes() async throws -> [Quote] {
         let urlSession = URLSession.shared
@@ -100,6 +102,10 @@ final class QuotesServiceImpl: QuotesService {
 
 
 ## 8. Design our ViewModel
+This will interact with our Service, but it also allows us to do any additional business logic
+* rearranging the data (sorting, filtering)
+* caching the data
+* etc
 ```swift
 protocol QuotesViewModel: ObservableObject {
     func getRandomQuotes() async 
