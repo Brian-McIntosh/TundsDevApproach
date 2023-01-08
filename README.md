@@ -11,13 +11,13 @@ enum APIConstants {
 Imagine you have the following sections in your app:
 
 <img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/1.png" width="400"/>
-You want to:
+You want:
 
-* Isolate features
+* To isolate features
 * To group any files associated w/ the feature
-    - model, vm, service, view
+    - Model, ViewModel, Service, View
 * To have high cohesion
-<img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/2.png" width="300"/>
+<img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/4.png" width="300"/>
 
 
 ## 3. Design Our Model
@@ -68,7 +68,7 @@ List {
 }
 
 // QuoteView
-// (cut from forEach loop on main screen)
+// (refactored from forEach loop on main screen)
 VStack(alignment: .leading, spacing: 8) {
     HStack {
         Image(systemName: "tv")
@@ -102,7 +102,7 @@ final class QuotesServiceImpl: QuotesService {
 
 
 ## 8. Design our ViewModel
-This will interact with our Service, but it also allows us to do any additional business logic
+The ViewModel will interact with our Service, but it also allows us to do additional business logic such as:
 * rearranging the data (sorting, filtering)
 * caching the data
 * etc
