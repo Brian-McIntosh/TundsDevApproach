@@ -33,7 +33,7 @@ struct Quote: Decodable {
 * use let b/c we don't want someone to change it
 
 
-## Creating Dummy Data
+## 4. Creating Dummy Data
 Why?
 * for unit testing
 * to preview what things will look like b4 we hook up our service
@@ -50,7 +50,7 @@ extension Quote {
 ```
 
 
-## Create Our Screen in SwiftUI
+## 5. Create Our Screen in SwiftUI
 * (personal change to call main screen a screen instead of view)
 * "Screen" is a container for a group of views
 <img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/3.png" width="300"/>
@@ -58,7 +58,7 @@ extension Quote {
 
 
 
-## Refactor UI into Views
+## 6. Refactor UI into Views
 ```swift
 // Main Screen
 List {
@@ -82,7 +82,7 @@ VStack(alignment: .leading, spacing: 8) {
 ```
 
 
-## Design our Service
+## 7. Design our Service
 ```swift
 protocol QuotesService {
     func fetchRandomQuotes() async throws -> [Quote]
@@ -99,7 +99,7 @@ final class QuotesServiceImpl: QuotesService {
 ```
 
 
-## Design our ViewModel
+## 8. Design our ViewModel
 ```swift
 protocol QuotesViewModel: ObservableObject {
     func getRandomQuotes() async 
