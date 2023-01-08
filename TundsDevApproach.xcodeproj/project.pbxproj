@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25292A8E296B408300B1F9A8 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25292A8D296B408300B1F9A8 /* APIConstants.swift */; };
 		25F80AE6296B23E400D0870F /* TundsDevApproachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F80AE5296B23E400D0870F /* TundsDevApproachApp.swift */; };
 		25F80AE8296B23E400D0870F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F80AE7296B23E400D0870F /* ContentView.swift */; };
 		25F80AEA296B23E700D0870F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F80AE9296B23E700D0870F /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25292A8D296B408300B1F9A8 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		25F80AE2296B23E400D0870F /* TundsDevApproach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TundsDevApproach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F80AE5296B23E400D0870F /* TundsDevApproachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TundsDevApproachApp.swift; sourceTree = "<group>"; };
 		25F80AE7296B23E400D0870F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25292A8C296B406500B1F9A8 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				25292A8D296B408300B1F9A8 /* APIConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		25F80AD9296B23E400D0870F = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +61,7 @@
 		25F80AE4296B23E400D0870F /* TundsDevApproach */ = {
 			isa = PBXGroup;
 			children = (
+				25292A8C296B406500B1F9A8 /* Constants */,
 				25F80AE5296B23E400D0870F /* TundsDevApproachApp.swift */,
 				25F80AE7296B23E400D0870F /* ContentView.swift */,
 				25F80AE9296B23E700D0870F /* Assets.xcassets */,
@@ -139,6 +150,7 @@
 			files = (
 				25F80AE8296B23E400D0870F /* ContentView.swift in Sources */,
 				25F80AE6296B23E400D0870F /* TundsDevApproachApp.swift in Sources */,
+				25292A8E296B408300B1F9A8 /* APIConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
