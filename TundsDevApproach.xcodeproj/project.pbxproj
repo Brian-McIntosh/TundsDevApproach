@@ -11,8 +11,9 @@
 		25292A91296B4FB600B1F9A8 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25292A90296B4FB600B1F9A8 /* Quote.swift */; };
 		25292A96296B52A200B1F9A8 /* QuotesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25292A95296B52A200B1F9A8 /* QuotesScreen.swift */; };
 		25292A9B296B569000B1F9A8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25292A9A296B569000B1F9A8 /* QuoteView.swift */; };
+		2564DB76296B5F7500FB58B8 /* QuotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564DB75296B5F7500FB58B8 /* QuotesService.swift */; };
+		2564DB79296B616B00FB58B8 /* QuotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2564DB78296B616B00FB58B8 /* QuotesViewModel.swift */; };
 		25F80AE6296B23E400D0870F /* TundsDevApproachApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F80AE5296B23E400D0870F /* TundsDevApproachApp.swift */; };
-		25F80AE8296B23E400D0870F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F80AE7296B23E400D0870F /* ContentView.swift */; };
 		25F80AEA296B23E700D0870F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F80AE9296B23E700D0870F /* Assets.xcassets */; };
 		25F80AED296B23E700D0870F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25F80AEC296B23E700D0870F /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -22,9 +23,10 @@
 		25292A90296B4FB600B1F9A8 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		25292A95296B52A200B1F9A8 /* QuotesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesScreen.swift; sourceTree = "<group>"; };
 		25292A9A296B569000B1F9A8 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		2564DB75296B5F7500FB58B8 /* QuotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesService.swift; sourceTree = "<group>"; };
+		2564DB78296B616B00FB58B8 /* QuotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewModel.swift; sourceTree = "<group>"; };
 		25F80AE2296B23E400D0870F /* TundsDevApproach.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TundsDevApproach.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F80AE5296B23E400D0870F /* TundsDevApproachApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TundsDevApproachApp.swift; sourceTree = "<group>"; };
-		25F80AE7296B23E400D0870F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		25F80AE9296B23E700D0870F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		25F80AEC296B23E700D0870F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,6 +53,8 @@
 		25292A8F296B44B900B1F9A8 /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				2564DB77296B614800FB58B8 /* ViewModel */,
+				2564DB74296B5F5A00FB58B8 /* Service */,
 				25292A97296B563D00B1F9A8 /* Views */,
 				25292A94296B528800B1F9A8 /* Screen */,
 				25292A93296B51F700B1F9A8 /* Model */,
@@ -90,6 +94,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2564DB74296B5F5A00FB58B8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2564DB75296B5F7500FB58B8 /* QuotesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2564DB77296B614800FB58B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2564DB78296B616B00FB58B8 /* QuotesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		25F80AD9296B23E400D0870F = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +132,6 @@
 				25292A92296B51E700B1F9A8 /* Feature */,
 				25292A8C296B406500B1F9A8 /* Constants */,
 				25F80AE5296B23E400D0870F /* TundsDevApproachApp.swift */,
-				25F80AE7296B23E400D0870F /* ContentView.swift */,
 				25F80AE9296B23E700D0870F /* Assets.xcassets */,
 				25F80AEB296B23E700D0870F /* Preview Content */,
 			);
@@ -198,9 +217,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				25292A91296B4FB600B1F9A8 /* Quote.swift in Sources */,
+				2564DB76296B5F7500FB58B8 /* QuotesService.swift in Sources */,
 				25292A9B296B569000B1F9A8 /* QuoteView.swift in Sources */,
-				25F80AE8296B23E400D0870F /* ContentView.swift in Sources */,
 				25F80AE6296B23E400D0870F /* TundsDevApproachApp.swift in Sources */,
+				2564DB79296B616B00FB58B8 /* QuotesViewModel.swift in Sources */,
 				25292A8E296B408300B1F9A8 /* APIConstants.swift in Sources */,
 				25292A96296B52A200B1F9A8 /* QuotesScreen.swift in Sources */,
 			);

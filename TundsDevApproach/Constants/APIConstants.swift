@@ -9,6 +9,7 @@ import Foundation
 
 enum APIConstants {
     static let baseUrl = "https://animechan.vercel.app"
+    //static let baseUrl = "https://icanhazdadjoke.com/"
     // "/api/random" is the endpoint
 }
 

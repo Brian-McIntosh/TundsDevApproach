@@ -52,19 +52,94 @@ image 3
 
 
 6. Refactor UI into Views
+```swift
+// Main Screen
+List {
+    ForEach(Quote.dummyData, id: \.anime) { item in
+        QuoteView(item: item)
+    }
+}
 
-
-
+// QuoteView
+// (cut from forEach loop on main screen)
+VStack(alignment: .leading, spacing: 8) {
+    HStack {
+        Image(systemName: "tv")
+            .font(.system(size: 12, weight: .black))
+        Text(item.anime)
+    }
+    
+    Text(item.character)
+    Text(item.quote)
+}
+```
 
 
 7. Design our Service
+```swift
+protocol QuotesService {
+    func fetchRandomQuotes() async throws -> [Quote]
+}
 
+final class QuotesServiceImpl: QuotesService {
+    func fetchRandomQuotes() async throws -> [Quote] {
+        let urlSession = URLSession.shared
+        let url = URL(string: APIConstants.baseUrl.appending("/api/quotes"))
+        let (data, _) = try await urlSession.data(from: url!)
+        return try JSONDecoder().decode([Quote].self, from: data)
+    }
+}
+```
 
 
 8. Design our ViewModel
+```swift
+protocol QuotesViewModel: ObservableObject {
+    func getRandomQuotes() async 
+}
 
+@MainActor
+final class QuotesViewModelImpl: QuotesViewModel {
+
+    @Published private(set) var quotes: [Quote] = []
+    
+    private let service: QuotesService
+    
+    init(service: QuotesService) {
+        self.service = service
+    }
+    
+    func getRandomQuotes() async {
+        do {
+            self.quotes = try await service.fetchRandomQuotes()
+        } catch {
+            print(error)
+        }
+    }
+}
+```
 
 9. Use ViewModel w/ @StateObject
+```swift
+struct QuotesScreen: View {
+    
+    @StateObject private var vm = QuotesViewModelImpl(service: QuotesServiceImpl())
+    
+    var body: some View {
+        List {
+//            ForEach(Quote.dummyData, id: \.anime) { item in
+//                QuoteView(item: item)
+//            }
+            ForEach(vm.quotes, id: \.anime) { item in
+                QuoteView(item: item)
+            }
+        }
+        .task {
+            await vm.getRandomQuotes()
+        }
+    }
+}
+```
 
 
 10. Creating Base Views

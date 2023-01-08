@@ -8,23 +8,20 @@
 import SwiftUI
 
 struct QuotesScreen: View {
+    
+    @StateObject private var vm = QuotesViewModelImpl(service: QuotesServiceImpl())
+    
     var body: some View {
-        
         List {
-            ForEach(Quote.dummyData, id: \.anime) { item in
-                VStack(alignment: .leading, spacing: 8) {
-                    HStack {
-                        Image(systemName: "tv")
-                            .font(.system(size: 12, weight: .black))
-                        Text(item.anime)
-                    }
-                    
-                    Text(item.character)
-                    Text(item.quote)
-                }
-                .padding()
-                .foregroundColor(.red)
+//            ForEach(Quote.dummyData, id: \.anime) { item in
+//                QuoteView(item: item)
+//            }
+            ForEach(vm.quotes, id: \.anime) { item in
+                QuoteView(item: item)
             }
+        }
+        .task {
+            await vm.getRandomQuotes()
         }
     }
 }
