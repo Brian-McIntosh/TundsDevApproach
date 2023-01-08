@@ -19,6 +19,6 @@ enum APIConstants {
  3. like a namespace for our properties
 */
 
-//struct Constants {
-//    static let baseUrl = "https://animechan.vercel.app"
-//}
+struct Constants {
+    static let baseUrl = "https://animechan.vercel.app"
+}
