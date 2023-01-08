@@ -1,5 +1,5 @@
-# TundsDevApproach
-1. Start by creating a Constants folder and an enum for our constants:
+# My SwiftUI Async Await MVVM Project Structure & Approach
+## 1. Start by creating a Constants folder and an enum for our constants:
 ```swift
 enum APIConstants {
     static let baseUrl = "https://animechan.vercel.app"
@@ -7,18 +7,20 @@ enum APIConstants {
 ```
 
 
-2. Create Feature Folders
-image 1
-* isolate features
-* any files associated w/ say Login should go in that feature folder
-    - model, vm, service, view
-* high cohesion
-image 2
+## 2. Create Feature Folders
+Imagine you have the following sections in your app:
 
-3. Design Our Model
-* model the API response
-* make it singular not plural
-* use let b/c we don't want someone to change it
+<img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/1.png" width="400"/>
+You want to:
+
+* Isolate features
+* To group any files associated w/ the feature
+    - model, vm, service, view
+* To have high cohesion
+<img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/2.png" width="300"/>
+
+
+## 3. Design Our Model
 ```swift
 struct Quote: Decodable {
     let anime: String
@@ -26,9 +28,13 @@ struct Quote: Decodable {
     let quote: String
 }
 ```
+* model the API response
+* make it singular not plural
+* use let b/c we don't want someone to change it
 
 
-4. Creating Dummy Data
+## Creating Dummy Data
+Why?
 * for unit testing
 * to preview what things will look like b4 we hook up our service
 ```swift
@@ -44,14 +50,15 @@ extension Quote {
 ```
 
 
-5. Create Our Screen in SwiftUI
+## Create Our Screen in SwiftUI
 * (personal change to call main screen a screen instead of view)
 * "Screen" is a container for a group of views
-image 3
-* Now I can see what the UI looks like so I can fixing before interacting with the api
+<img src="https://github.com/Brian-McIntosh/TundsDevApproach/blob/main/images/3.png" width="300"/>
+* Great, now I can see what the UI looks like even before creating our service to call an API
 
 
-6. Refactor UI into Views
+
+## Refactor UI into Views
 ```swift
 // Main Screen
 List {
@@ -75,7 +82,7 @@ VStack(alignment: .leading, spacing: 8) {
 ```
 
 
-7. Design our Service
+## Design our Service
 ```swift
 protocol QuotesService {
     func fetchRandomQuotes() async throws -> [Quote]
@@ -92,7 +99,7 @@ final class QuotesServiceImpl: QuotesService {
 ```
 
 
-8. Design our ViewModel
+## Design our ViewModel
 ```swift
 protocol QuotesViewModel: ObservableObject {
     func getRandomQuotes() async 
@@ -119,7 +126,7 @@ final class QuotesViewModelImpl: QuotesViewModel {
 }
 ```
 
-9. Use ViewModel w/ @StateObject
+## Use ViewModel w/ @StateObject
 ```swift
 struct QuotesScreen: View {
     
@@ -142,4 +149,4 @@ struct QuotesScreen: View {
 ```
 
 
-10. Creating Base Views
+## Creating Base Views
